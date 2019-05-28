@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ThemeFloatDialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>//是否半透明
+        <item name="android:background">#333a3a3a</item>
+        <item name="android:windowBackground">@android:color/transparent</item>//显示区域背景
+        <item name="android:backgroundDimEnabled">false</item>//显示区域以外的背景是否半透明
+    </style>
+
+</resources>
