@@ -36,14 +36,18 @@ public class MainActivity extends BaseActivity {
 
                 break;
             case R.id.image_voice:
-                if (editText.getVisibility() == View.GONE) {
-                    editText.setVisibility(View.VISIBLE);
-                    rectCustomButton.setVisibility(View.GONE);
-                } else {
-                    editText.setVisibility(View.GONE);
-                    rectCustomButton.setVisibility(View.VISIBLE);
-                }
+                changeBottomStatus();
                 break;
+        }
+    }
+
+    private void changeBottomStatus () {
+        if (editText.getVisibility() == View.GONE) {
+            editText.setVisibility(View.VISIBLE);
+            rectCustomButton.setVisibility(View.GONE);
+        } else {
+            editText.setVisibility(View.GONE);
+            rectCustomButton.setVisibility(View.VISIBLE);
         }
     }
 
