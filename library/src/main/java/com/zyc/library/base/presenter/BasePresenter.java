@@ -12,8 +12,8 @@ public abstract class BasePresenter<V extends BaseIView, M extends Repository> {
     protected V iView;
     protected M iModel;
 
-    protected void attachView(AppCompatActivity activity, BaseIView baseIView) {
-        iView = (V) baseIView;
+    protected void attachView(AppCompatActivity activity, V baseIView) {
+        iView =  baseIView;
         this.activity = activity;
     }
 

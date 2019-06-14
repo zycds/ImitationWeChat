@@ -7,9 +7,12 @@ import android.view.WindowManager;
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
+import butterknife.Unbinder;
+
 public abstract class BaseActivity extends RxAppCompatActivity implements IBaseView {
 
     protected BasePresenter mBasePresenter;
+    protected Unbinder mUnBinder;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,6 +28,11 @@ public abstract class BaseActivity extends RxAppCompatActivity implements IBaseV
     protected void onDestroy() {
         super.onDestroy();
         unBindView();
+    }
+
+    @Override
+    public void unBindView() {
+        if (mUnBinder != null) mUnBinder.unbind();
     }
 
     protected abstract void init ();
