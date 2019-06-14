@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.zyc.imitationwechat.manager.AudioManager;
+
 import java.util.Random;
 
 import butterknife.BindView;
@@ -51,6 +53,7 @@ public class FloatDialog extends Dialog {
             setContentView(inflate);
             show();
         }
+        AudioManager.getInstance().recordMediaRecorder();
         setIsShowVolumeOrCancel(false);
         textTips.setText(R.string.speaking);
         mHandler.postDelayed(volumeRunnable, SPACE_UPDATE_VOLUME_TIME);
@@ -60,6 +63,7 @@ public class FloatDialog extends Dialog {
         mHandler.removeCallbacks(volumeRunnable);
         setIsShowVolumeOrCancel(true);
         textTips.setText(R.string.want_to_cancel);
+        AudioManager.getInstance().stopMediaRecorder();
     }
 
     private void setIsShowVolumeOrCancel (boolean isCancel) {
@@ -81,6 +85,7 @@ public class FloatDialog extends Dialog {
     public void dismissDialog() {
         if (mBinder!= null) mBinder.unbind();
         mHandler.removeCallbacks(volumeRunnable);
+        AudioManager.getInstance().releaseMediaRecorder(mContext);
         dismiss();
     }
 

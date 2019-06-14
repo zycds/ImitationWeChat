@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +33,11 @@ public class MainAdapter extends RecyclerView.Adapter<ViewHolderManager.MainView
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderManager.MainViewHolder mainViewHolder, int i) {
+        Log.i("onBindViewHolder: ", " position : " + i);
         mainViewHolder.textVolume.setText("" + i);
+        mainViewHolder.textVolume.setOnClickListener(v -> {
+
+        });
     }
 
     @Override

@@ -5,7 +5,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
-public abstract class BaseActivity extends AppCompatActivity implements IBaseView {
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+
+public abstract class BaseActivity extends RxAppCompatActivity implements IBaseView {
 
     protected BasePresenter mBasePresenter;
 
@@ -15,6 +17,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         init();
         bindView();
+        initView();
         if (mBasePresenter!=null) mBasePresenter.loadData();
     }
 
